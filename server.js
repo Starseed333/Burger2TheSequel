@@ -8,7 +8,7 @@ var db = require("./models");
 var app = express();
 var port = process.env.PORT || 3000;
 
-// app set-ups
+
 
 app.use(express.static("public"));
 app.use(body.urlencoded({extended: false}));
