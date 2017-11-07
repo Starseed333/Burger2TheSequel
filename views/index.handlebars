@@ -1,0 +1,61 @@
+<h1>Eat-Da-Burger!</h1>
+
+<div id="container">
+ 
+<!-- Add a new burger -->
+  <div id="addburger">
+    <div id="burger">
+      <img src="/assets/img/burger.jpeg" width ="200" height="200">
+    </div>
+    <!-- Post Method -->
+    <form class="addburger" method="POST">
+      <label for="newburger">Add a new burger to the menu!</label><br>
+      <input type="text" id="newburger" name="name">
+      <button type="submit">Submit</button>
+    </form>
+  
+  </div>
+
+  <div id="burgerholder">
+  <h3>Ready to Eat Burgers</h3>
+    {{#each burgers}}
+      {{#unless devoured}}
+      <ul>
+        <li>
+          {{this.burger_name}}
+          <!-- Post Method -->
+          <form action="/{{this.id}}?_method=PUT" method="POST">
+          <input type="hidden" name="boolean" value="true">
+          <br><button type="button" class="predevour" id="devour{{this.id}}">Your Name</button>
+          <input type="text" name="customer" class="customer" id="customer{{this.id}}" placeholder="Customer name">
+          </form>
+        </li>
+      </ul>
+      {{/unless}}
+    {{/each}}
+  </div>
+  <!-- Devoured Burgers -->
+  <div id="burgergone">
+  <h3>Devoured Burgers</h3>
+    {{#each burgers}}
+      {{#if this.devoured}}
+      <ul>
+        <li>
+          {{this.burger_name}} (Devoured by {{this.customer.name}})
+          <!-- Post Method -->
+          <br><form action="/{{this.id}}?_method=PUT" method="POST">
+          <input type="hidden" name="boolean" value="false">
+          <button type="submit">Seconds?</button>
+          </form>
+          <!-- Post Method -->
+          <form action="/{{this.id}}?_method=DELETE" method="POST">
+          <button type="submit">No, delete this burger</button>
+          </form>
+        </li>
+      </ul>
+      {{/if}}
+    {{/each}}
+  </div>
+</div>
+
+
