@@ -6,6 +6,7 @@ module.exports = function(sequelize, DataType) {
       len: [1]
     }
   });
+  
   customer.associate = function(models) {
     customer.hasMany(models.burger, {
     });
