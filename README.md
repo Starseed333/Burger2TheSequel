@@ -11,7 +11,7 @@ A full stack application using the MVC system.  The app presents you with an ava
 
 ### Burger2TheSequel Demo
 
-* ##### Take a look at the application here. https://youtu.be/Fm60Lb1zsBE
+* ##### [Take a look at the application here](https://youtu.be/Fm60Lb1zsBE)
 
 
 
